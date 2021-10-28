@@ -11,7 +11,7 @@ class User:
     # since we will use the class name User in "if row: user = User(row[0]...)"
     # we should make it a class method to use the current class instead of hardcoding the class name if it will be changed in the future
     @classmethod
-#ability to retrieve user object from the database by interacting with sqlite3
+    # retrieve user object from the database by interacting with sqlite3
     def find_by_username(cls, username):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
@@ -24,7 +24,7 @@ class User:
         row = result.fetchone()
         # if it wasn't None, if there is a found result
         if row:
-            #create a user object with the data from that row for(row[0], row[1], row[2]) the 3 columns is, username, password
+            # create a user object with the data from that row for(row[0], row[1], row[2]) the 3 columns is, username, password
             # instead of specifying the number of rows, we can use positional arguments (*args)
             # change (row[0], row[1], row[2]) to (*row)
             user = cls(*row)
@@ -40,15 +40,15 @@ class User:
     # since we will use the class name User in "if row: user = User(row[0]...)"
     # we should make it a class method to use the current class instead of hardcoding the class name if it will be changed in the future
     @classmethod
-#ability to retrieve user object from the database by interacting with sqlite3
+    # retrieve user object from the database by interacting with sqlite3
     def find_by_id(cls, id):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
-        # search the table for a given username
+        # search the table for a given id
         query = "SELECT * FROM users WHERE id=?" # select only the rows where the username matches the parameter
         # get the result of the query
-        result = cursor.execute(query, (id,)) # username must be in a tuple so we leave a comma
+        result = cursor.execute(query, (id,)) # id must be in a tuple so we leave a comma
         # get the first row from the result set if more than one
         row = result.fetchone()
         # if it wasn't None, if there is a found result
@@ -63,18 +63,18 @@ class User:
 
         connection.close()
 
-        #return the user or None id not found
+        #return the user or None if not found
         return id
 
 class UserRegister(Resource):
-
+# create a parser that looks for username
     parser = reqparse.RequestParser()
     parser.add_argument('username',
         type= str,
         required=True,
         help="This field cannot be blank."
     )
-
+# create a parser that looks for password
     parser.add_argument('password',
         type= str,
         required=True,
@@ -82,11 +82,10 @@ class UserRegister(Resource):
     )
 
     def post(self):
-        # get the data from json payload
         # parse the argument that expects a username and a password
         data = UserRegister.parser.parse_args()
 
-        #make sure not to register a duplicate username
+        # make sure not to register a duplicate username
         # find_by_username returns the username or None if the user doesn't exist
         # "if User.find_by_username" returns True if user exists, None if it doesn't
         if User.find_by_username(data['username']):
