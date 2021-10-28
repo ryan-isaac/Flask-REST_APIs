@@ -1,4 +1,4 @@
-# CRUD Flask-REST_APIs on sqlite3
+# CRUD Flask-REST_APIs With SQLite3 Database
 This is a basic CRUD (Create, Read, Update, Delete) API testing for webservice application based on Flask. JWT is used to restrict access to specific users. For testing and development purposes, many variables have been hardcoded and the database used is SQLite as it is the most convenient in terms of size and functions for the purpose of this testing environment. The API requests were tested using "Postman" app on a Linux OS. 
 
 ## Files:
