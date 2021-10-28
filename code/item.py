@@ -54,7 +54,7 @@ class Item(Resource):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
-        # insert into the database
+        # update a record in the database
         query = "UPDATE items SET price=? WHERE name =?"
         cursor.execute(query, (item['price'],item['name']))
 
@@ -134,13 +134,13 @@ class ItemList(Resource):
     def get(self):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
-        # delete row where name = item name from the table
+        # select all items
         query = "SELECT * FROM items"
         result = cursor.execute(query)
         items = [] # create a list for all the items to be stored temporarily
         for row in result:
             items.append({'name': row[0], 'price': row[1]})
-
+            
         connection.close()
 
         return {'items': items}
