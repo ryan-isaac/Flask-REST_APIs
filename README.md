@@ -2,19 +2,19 @@
 This is a basic CRUD (Create, Read, Update, Delete) API testing for webservice application based on Flask. JWT is used to restrict access to specific users. For testing and development purposes, many variables have been hardcoded and the database used is SQLite as it is the most convenient in terms of size and functions for the purpose of this testing environment. The API requests were tested using "Postman" app on a Linux OS. 
 
 ## Files:
-1- app.py <= This must be the main file to run (python3 app.py)
+1- app.py <= This must be the main file to run (python3 app.py) \
 Starts Flask, sets the requests path, and imports all other files to run the web application
 
-2- create_tables.py
+2- create_tables.py \
 Creates users and items tables in sqlite3 database
 
-3- item.py
+3- item.py \
 Defines the requests functions and how they interact with the database
 
-4- security.py
+4- security.py \
 Imports user.py to find users and matches them with existing users’ credentials to access the generated tokens
 
-5- user.py
+5- user.py \
 Defines functions to find or register users
 
 Versions used in this virtual environment to run the program:
