@@ -47,6 +47,9 @@ Versions used in this virtual environment to run the program:
 - Flask-JWT==0.3.2
 - Flask-RESTful==0.3.9
 - PyJWT==1.4.2
+- Flask-SQLAlchemy==2.5.1
+- SQLAlchemy==1.4.26
+
 
 ## Run The Program
 If interested in using the same versions to avoid any version issues, you may install and use a virtual environment in your directory for a clean python version without affecting your current installed version. Below is how it can be installed on ubuntu Linux VM:
