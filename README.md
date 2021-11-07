@@ -18,21 +18,20 @@ Imports user.py to find users and matches them with existing users’ credential
 Defines functions to find or register users
 
 ## Flask-SQLAlchemy Files:
-  1- app.py
+  1- app.py \
   The main file to run the program, import the models and resources, set the SQLAlchemy configurations (refer to: https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/), initiate the table creation, and set the api paths.
-  2- db.py
+  2- db.py \
   Set Flask SQLAlchemy() object db, to use it in other files.
-  3- security.py
+  3- security.py \
   Allows the program to retrieve users from the database
-  4- models
-    - item
+  4- models \
+    - item \
     Defines item table columns and includes all models needed to run the resource file related to items table and its connection with other tables (finding an item, deleting an item, or posting an item).
-    - store
+    - store \
     Defines store table columns and includes all models needed to run the item resource file and defines its connection with item ItemModel that connects both tables.
-    - user
+    - user \
     Defines users table columns and includes all models needed to register a user or find a user.
-    
-  5-Resources
+  5-Resources \
     - item
     - store
     - user
