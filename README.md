@@ -57,7 +57,7 @@ If interested in using the same versions to avoid any version issues, you may in
   #Install the virtual environment in the same directory of the code
   #Activate and access the virtual environment from the same directory, if it was successful, you will see (venv) before your path
           
-    $> pip3 install virtualenv
+    $> pip install virtualenv
     $> virtualenv venv --python=python3.8 
     $> source venv/bin/activate
 
